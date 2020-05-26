@@ -9,7 +9,7 @@ bot.on('ready', () =>{
 
 bot.on('message', msg=>{
     if(msg.content === "we in?"){
-        msg.reply('We\'re in.');
+        msg.reply('We\'re in!');
     }
 })
 

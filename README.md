@@ -3,3 +3,8 @@ A powerful, multipurpose discord bot programmed using the Discord API and JS tha
 
 ## Abilities
 - Can respond to messages by directly pinging a person or replying generally in the channel.
+
+```
+Commands list:
+
+```

@@ -31,6 +31,11 @@ bot.on('message', message=>{
                 message.channel.send('Invalid command :(')
             }
         break;
+
+        case 'clear':
+            if(!args[1]) return message.reply('Error: Please define a second argument')
+            message.channel.bulkDelete(args[1]);
+        break;
     }
 })
 

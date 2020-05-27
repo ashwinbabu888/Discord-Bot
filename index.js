@@ -7,6 +7,9 @@ const PREFIX = '!';
 
 var version = '1.0.1';
 
+var servers = {};
+
+
 bot.on('ready', () =>{
     console.log('This bot is online!');
 })
@@ -43,7 +46,10 @@ bot.on('message', message=>{
                 return;
             }
 
-            
+            if(!message.member.voiceChannel){
+                message.channel.send("you must be in a voice channel to play the bot!");
+                return;
+            }            
 
         break;
     }

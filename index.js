@@ -36,6 +36,16 @@ bot.on('message', message=>{
             if(!args[1]) return message.reply('Error: Please define a second argument')
             message.channel.bulkDelete(args[1]);
         break;
+
+        case 'play':
+            if(!args[1]){
+                message.channel.send("you need to provide a link!");
+                return;
+            }
+
+            
+
+        break;
     }
 })
 

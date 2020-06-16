@@ -5,11 +5,11 @@ A powerful, multipurpose Discord bot programmed using the Discord API and Python
         Additionally, the Discord API token listed in this repository is not the same one being used to run the bot (for security
         reasons); it has been regenerated.**
 
-## Abilities
-- Can respond to messages by directly pinging a person or replying generally in the channel.
-- Can clear a specified amount of messages.
+## Passive Abilities
+- Returns the name of a member who leaves or joins the server along with a message.
 
 ```
 Commands list:
-
+!ping - Returns your current device's ping in ms
+!8ball + question - Returns your question as well as an answer to it (much like a Magic 8Ball)
 ```

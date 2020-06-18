@@ -10,6 +10,7 @@ A powerful, multipurpose Discord bot programmed using the Discord API and Python
 
 ```
 Commands list:
+
 !ping - Returns your current device's ping in ms
 
 !8ball + question - Returns your question as well as an answer to it (much like a Magic 8Ball)

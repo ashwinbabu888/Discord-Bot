@@ -50,6 +50,7 @@ async def _8ball(ctx, *, question):
 @client.command()
 async def kick(ctx, member : discord.Member, *, reason=None):
     await member.kick(reason=reason)
+    await ctx.send(f'{member.mention} has been kicked!')
 
 
 # ban member function
@@ -57,6 +58,7 @@ async def kick(ctx, member : discord.Member, *, reason=None):
 @client.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)
+    await ctx.send(f'{member.mention} has been banned!')
 
 
 # unban member function
@@ -70,7 +72,8 @@ async def unban(ctx, *, member):
 
         if(user.name, user.discriminator) == (member_name, member_discriminator):
             await ctx.guild.unban(user)
-            await ctx.send(f'{user.name}#{user.discriminator} has been unbanned!')
+            await ctx.send(f'{user.mention} has been unbanned!')
+            break
 
 
 # runs the client using its Discord API Token

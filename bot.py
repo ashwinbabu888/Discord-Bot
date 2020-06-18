@@ -53,9 +53,24 @@ async def kick(ctx, member : discord.Member, *, reason=None):
 
 
 # ban member function
+# asterisk makes any input following the second parameter part of "reason"
 @client.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)
+
+
+# unban member function
+@client.command()
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    member_name, member_discriminator = member.split('#')
+
+    for ban_entry in banned_users:
+        user = ban_entry.user
+
+        if(user.name, user.discriminator) == (member_name, member_discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f'{user.name}#{user.discriminator} has been unbanned!')
 
 
 # runs the client using its Discord API Token

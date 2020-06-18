@@ -12,4 +12,7 @@ A powerful, multipurpose Discord bot programmed using the Discord API and Python
 Commands list:
 !ping - Returns your current device's ping in ms
 !8ball + question - Returns your question as well as an answer to it (much like a Magic 8Ball)
+!clear # - Clears the inputted number of messages (including the clear statement); defaults to 5 messages without an inputted number
+!kick @name#0000 - Kicks the inputted member from the server
+!ban @name#0000 - Bans the inputted member from the server
 ```

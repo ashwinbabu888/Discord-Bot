@@ -45,32 +45,6 @@ async def ping(ctx):
     await ctx.send(f'Your ping is {round(client.latency * 1000)}ms')
 
 
-# flips a coin
-@client.command()
-async def flip(ctx):
-    sides = ['heads', 'tails']
-    await ctx.send(f'{random.choice(sides)}')
-
-
-# chooses debate round side and order
-@client.command()
-async def decide(ctx):
-    sides = ['aff', 'neg']
-    order = ['1st', '2nd']
-    decision = [random.choice(sides), random.choice(order)]
-    if decision[0] == 'aff':
-        if decision[1] == '1st':
-            decision2 = ['neg', '2nd']
-        elif decision[1] == '2nd':
-            decision2 = ['neg', '1st']
-    elif decision[0] == 'neg':
-        if decision[1] == '1st':
-            decision2 = ['aff', '2nd']
-        elif decision[1] == '2nd':
-            decision2 = ['aff', '1st']
-    await ctx.send(f'You will be {decision[0]} {decision[1]}, and your opponent will be {decision2[0]} {decision2[1]}')
-
-
 # 8 ball feature which responds to a question
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):

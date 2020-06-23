@@ -12,7 +12,7 @@ A multipurpose Discord bot programmed using the Discord API and Python 3 that ca
 ```
 Commands list:
 
-!ping - Returns your current device's ping in milliseconds
+!ping - Returns your current device's latency in milliseconds
 
 !kick name#0000 reason - Kicks the inputted member from the server and writes the inputted reason in the server audit logs
 

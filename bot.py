@@ -89,34 +89,5 @@ async def echo(ctx, *, message):
     await ctx.send(f'{message}')
 
 
-# kick member function
-@client.command()
-async def kick(ctx, member : discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-    await ctx.send(f'{member.mention} has been kicked!')
-
-
-# ban member function
-@client.command()
-async def ban(ctx, member: discord.Member, *, reason=None):
-    await member.ban(reason=reason)
-    await ctx.send(f'{member.mention} has been banned!')
-
-
-# unban member function
-@client.command()
-async def unban(ctx, *, member):
-    banned_users = await ctx.guild.bans()
-    member_name, member_discriminator = member.split('#')
-
-    for ban_entry in banned_users:
-        user = ban_entry.user
-
-        if(user.name, user.discriminator) == (member_name, member_discriminator):
-            await ctx.guild.unban(user)
-            await ctx.send(f'{user.mention} has been unbanned!')
-            break
-
-
 # runs the client using its Discord API Token
 client.run('NzIyNTc0NzU4MTc2MjI3Mzk5.XulEXw.0sGoOSHo-KyT-Kzalw31pX94FO4')

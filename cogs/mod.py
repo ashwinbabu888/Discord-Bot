@@ -7,6 +7,11 @@ class Moderation(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    # clear function
+    @commands.command()
+    async def clear(self, ctx, amount=5):
+        await ctx.channel.purge(limit=amount)
+
     # kick member function
     @commands.command()
     async def kick(self, ctx, member: discord.Member, *, reason=None):
@@ -32,7 +37,6 @@ class Moderation(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.send(f'{user.mention} has been unbanned!')
                 break
-
 
 
 def setup(client):

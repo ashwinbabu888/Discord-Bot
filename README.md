@@ -6,7 +6,7 @@ A powerful, multipurpose Discord bot programmed using the Discord API and Python
         reasons); it has been regenerated.**
 
 ## Passive Abilities
-- Prints "I am ready!" when initialized and ready to be used.
+- Prints "Bot has been initialized. Ready for action!" when initialized and ready to be used.
 - Returns the name of a member who leaves or joins the server along with a message.
 
 ```

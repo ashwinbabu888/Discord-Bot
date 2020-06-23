@@ -1,14 +1,33 @@
 import discord
+import os
 import random
+import time
+import math
 from discord.ext import commands
 
 client = commands.Bot(command_prefix="!")
 
 
+# load cogs command
+@client.command()
+async def load(ctx, extension):
+    client.load_extension(f'cogs.{extension}')
+
+
+# unload cogs command
+@client.command()
+async def unload(ctx, extension):
+    client.unload_extension(f'cogs.{extension}')
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
+
+
 # message to confirm initialization
 @client.event
 async def on_ready():
-    print('I am ready!')
+    print('Bot has been initialized.')
 
 
 # returns the name of who joined the server
@@ -35,6 +54,32 @@ async def ping(ctx):
     await ctx.send(f'Your ping is {round(client.latency * 1000)}ms')
 
 
+# flips a coin
+@client.command()
+async def flip(ctx):
+    sides = ['heads', 'tails']
+    await ctx.send(f'{random.choice(sides)}')
+
+
+# chooses debate round side and order
+@client.command()
+async def decide(ctx):
+    sides = ['aff', 'neg']
+    order = ['1st', '2nd']
+    decision = [random.choice(sides), random.choice(order)]
+    if decision[0] == 'aff':
+        if decision[1] == '1st':
+            decision2 = ['neg', '2nd']
+        elif decision[1] == '2nd':
+            decision2 = ['neg', '1st']
+    elif decision[0] == 'neg':
+        if decision[1] == '1st':
+            decision2 = ['aff', '2nd']
+        elif decision[1] == '2nd':
+            decision2 = ['aff', '1st']
+    await ctx.send(f'You will be {decision[0]} {decision[1]}, and your opponent will be {decision2[0]} {decision2[1]}')
+
+
 # 8 ball feature which responds to a question
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
@@ -46,6 +91,13 @@ async def _8ball(ctx, *, question):
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 
+# echoes the given message and deletes the command
+@client.command(aliases=['copy'])
+async def echo(ctx, *, message):
+    await ctx.channel.purge(limit=1)
+    await ctx.send(f'{message}')
+
+
 # kick member function
 @client.command()
 async def kick(ctx, member : discord.Member, *, reason=None):
@@ -54,7 +106,6 @@ async def kick(ctx, member : discord.Member, *, reason=None):
 
 
 # ban member function
-# asterisk makes any input following the second parameter part of "reason"
 @client.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)

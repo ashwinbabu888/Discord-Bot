@@ -14,11 +14,11 @@ Commands list:
 
 !ping - Returns your current device's ping in milliseconds
 
-!kick @name#0000 reason - Kicks the inputted member from the server and writes the inputted reason in the server audit logs
+!kick name#0000 reason - Kicks the inputted member from the server and writes the inputted reason in the server audit logs
 
-!ban @name#0000 reason - Bans the inputted member from the server and writes the inputted reason in the server audit logs
+!ban name#0000 reason - Bans the inputted member from the server and writes the inputted reason in the server audit logs
 
-!unban @name#0000 - Searches through the server ban logs for the inputted member's name/tag and unbans them.
+!unban name#0000 - Searches through the server ban logs for the inputted member's name/tag and unbans them.
 
 !clear # - Clears the inputted number of messages (including the clear statement); defaults to 5 messages without an inputted number
 

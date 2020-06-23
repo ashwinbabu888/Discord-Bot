@@ -11,12 +11,14 @@ client = commands.Bot(command_prefix="!")
 # load cogs command
 @client.command()
 async def load(ctx, extension):
+    await ctx.send(f'Loaded {extension}.py cog.')
     client.load_extension(f'cogs.{extension}')
 
 
 # unload cogs command
 @client.command()
 async def unload(ctx, extension):
+    await ctx.send(f'Unloaded {extension}.py cog.')
     client.unload_extension(f'cogs.{extension}')
 
 for filename in os.listdir('./cogs'):

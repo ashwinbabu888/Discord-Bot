@@ -33,24 +33,6 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
 
-# message to confirm initialization
-@client.event
-async def on_ready():
-    print('Bot has been initialized.')
-
-
-# returns the name of who joined the server
-@client.event
-async def on_member_join(member):
-    print(f'{member} has joined the server!')
-
-
-# returns the name of who left the server
-@client.event
-async def on_member_remove(member):
-    print(f'Wow. {member} left the server.')
-
-
 # clear function
 @client.command()
 async def clear(ctx, amount=5):

@@ -1,8 +1,6 @@
 import discord
 import os
 import random
-import time
-import math
 from discord.ext import commands
 
 client = commands.Bot(command_prefix="!")
@@ -20,6 +18,15 @@ async def load(ctx, extension):
 async def unload(ctx, extension):
     await ctx.send(f'Unloaded {extension}.py cog.')
     client.unload_extension(f'cogs.{extension}')
+
+
+# reload cogs command
+@client.command()
+async def reload(ctx, extension):
+    client.unload_extension(f'cogs.{extension}')
+    client.load_extension(f'cogs.{extension}')
+    await ctx.send(f'Reloaded {extension}.py cog.')
+
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):

@@ -9,8 +9,14 @@ class Moderation(commands.Cog):
 
     # clear function
     @commands.command()
-    async def clear(self, ctx, amount=5):
+    async def clear(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount)
+
+    # clear error handler
+    @clear.error
+    async def clear_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('Error: Please specify an amount of messages to delete.')
 
     # kick member function
     @commands.command()

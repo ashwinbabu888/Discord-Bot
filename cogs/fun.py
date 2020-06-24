@@ -18,11 +18,23 @@ class Fun(commands.Cog):
                      "Outlook not so good.", "Very doubtful."]
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
+    # 8ball function error handler
+    @_8ball.error
+    async def _8ball_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('Error: Please enter a question.')
+
     # echoes the given message and deletes the command
     @commands.command(aliases=['copy'])
     async def echo(self, ctx, *, message):
         await ctx.channel.purge(limit=1)
         await ctx.send(f'{message}')
+
+    # echo function error handler
+    @echo.error
+    async def echo_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('Error: Please enter a message to echo.')
 
 
 def setup(client):

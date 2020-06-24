@@ -24,10 +24,12 @@ Moderator Commands:
 !unban name#0000 - Searches through the server ban logs for the inputted member's name/tag and unbans them.
 
 
+
 Debate Commands:
 !flip - Returns heads or tails. Useful for pre-rounding in Public Forum debate.
 
 !decide - Randomly decides the side and order for a Public Forum debate.
+
 
 
 Fun Commands:

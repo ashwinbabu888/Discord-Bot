@@ -8,6 +8,7 @@ A multipurpose Discord bot programmed using the Discord API and Python 3 that ca
 ## Passive Abilities
 - Prints "Bot has been initialized." when initialized and ready to be used.
 - Returns the name of a member who leaves or joins the server along with a message.
+- Displays given status as well as custom game activity.
 
 ```
 Commands list:
